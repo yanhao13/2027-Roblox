@@ -24,7 +24,7 @@ paper2code-work/
 ├── matcha_src/          # MATCHA paper LaTeX source (from arXiv e-print)
 │   └── MATCHA_cleaned.tex   # flattened/cleaned input fed to PaperCoder
 ├── outputs/
-│   └── MATCHA/            # final generated repository (17 .py + config + walkthrough)
+│   └── MATCHA/          # final generated repository (17 .py + config + walkthrough)
 ├── clean_latex.py       # LaTeX flattening/cleaning script
 ├── gen_walkthrough.py   # generates walkthrough.ipynb
 ├── build_deliverables.py
