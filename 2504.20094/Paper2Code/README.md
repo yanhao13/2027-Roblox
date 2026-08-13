@@ -1,16 +1,6 @@
 **not o3-mini, claude fable 5 is the model working here. for reference: [going-doer/Paper2Code(4.8k)](https://github.com/going-doer/paper2code).**
 
 # Paper2Code → MATCHA
-
-This repository documents a complete **paper-to-code** run: taking the MATCHA
-paper and producing a faithful code repository with the official
-[Paper2Code / PaperCoder](https://github.com/going-doer/Paper2Code) multi-agent
-pipeline, **adapted to run on the Anthropic API** (`claude-fable-5`) instead of
-the original OpenAI / vLLM backends.
-
-Target paper: *Toward Safe and Human-Aligned Game Conversational Recommendation
-via Multi-Agent Decomposition* (arXiv:2504.20094).
-
 ## What's here
 
 ```
@@ -31,17 +21,6 @@ paper2code-work/
 ├── run_matcha.sh        # full run (planning → config → analyzing → coding)
 └── run_matcha_continue.sh
 ```
-
-## Adaptations vs. the official repo
-
-1. **Backend**: `from openai import OpenAI` replaced with a
-   `deepseek_adapter.OpenAI` shim (stdlib `urllib` → `api.deepseek.com/chat/completions`).
-2. **Bug fix — nested paths**: `2_analyzing.py` crashed writing artifacts for
-   nested task files (`agents/risk_control.py`); added `os.makedirs(dirname)`.
-3. **Bug fix — resume**: added skip-if-exists logic to `2_analyzing.py` and
-   `3_coding.py` so an interrupted run can resume without re-spending.
-4. **Robustness**: `utils.cal_cost` zero-fallback for unknown models;
-   `content_to_json` strips markdown code fences.
 
 ## Note
 
